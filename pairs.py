@@ -1,15 +1,18 @@
 def find_pair(number, numbers):
     for pair in numbers:
         if int(number) + int(pair) == 10:
-            print(number + ' + ' + pair)
+            return number + " + " + pair
 
 
 def main(parameters):
-    index = 0
-    for number in parameters:
-        if index < len(parameters) - 1:
-            find_pair(number, parameters[index + 1:])
-        index += 1
+    params = sorted(parameters)
+    pairs_set = set()
+    for index, number in enumerate(params):
+        if index < len(params) - 1:
+            pair = find_pair(number, params[index + 1:])
+            if (pair):
+                pairs_set.add(pair)
+    print(pairs_set)
 
 
 # main block
