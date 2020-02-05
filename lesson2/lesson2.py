@@ -3,12 +3,7 @@ def is_empty_line(line):
 
 
 def count_z(line):
-    # return list(filter(lambda letter: letter == 'z', enumerate(line)))
-    count = 0
-    for i, letter in enumerate(line):
-        if letter == 'z':
-            count += 1
-    return count
+    return len(list(filter(lambda letter: letter == 'z', line)))
 
 
 def analyze(file):
@@ -16,7 +11,6 @@ def analyze(file):
     lines_with_z = 0
     z_count = 0
     lines_with_and = 0
-    # lines_list = file.readlines()
 
     for i, line in enumerate(file):
         if is_empty_line(line):
