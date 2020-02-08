@@ -1,8 +1,9 @@
-import re
+from decimal import Decimal
 
 
 def is_number(input_data):
-    num_format = re.compile('^-?\d+(\.\d+)?$')
-    result = re.match(num_format, input_data)
-    return result
-
+    try:
+        Decimal(input_data)
+        return True
+    except:
+        return False
