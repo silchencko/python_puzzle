@@ -1,13 +1,15 @@
+from decimal import Decimal
 from estimation.task.task import Task
 from estimation.project.project import Project
-from decimal import Decimal
 
 
-def add_task_to_project(task_estomations, project):
+def add_task_to_project(task_estimations, project):
     try:
-        task = Task(Decimal(task_estomations[0].strip()),
-                    Decimal(task_estomations[1].strip()),
-                    Decimal(task_estomations[2].strip()))
+        a = Decimal(task_estimations[0].strip())
+        m = Decimal(task_estimations[1].strip())
+        b = Decimal(task_estimations[2].strip())
+        task = Task(a, m, b)
+        # task = Task(task_estimations)
         project.add_task(task)
     except:
         print('Estimations must be numbers')
@@ -40,18 +42,17 @@ def ask_user():
 
 
 def main():
-    try:
-        tasks_list = ask_user()
-        project = Project()
-        for task in tasks_list:
-            task_estimations = split_estimations(task)
-            add_task_to_project(task_estimations, project)
+    tasks_list = ask_user()
+    project = Project()
+    for task in tasks_list:
+        task_estimations = split_estimations(task)
+        add_task_to_project(task_estimations, project)
 
+    if project.tasks_len > 0:
         print(f'Project\'s 95% confidence interval: '
-              f'{project.calculate_min_confidence_intervals()} ... '
-              f'{project.calculate_max_confidence_intervals()}')
-    except:
-        pass
+              f'{project.min_confidence_intervals} ... '
+              f'{project.max_confidence_intervals}')
 
 
 main()
+
