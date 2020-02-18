@@ -39,6 +39,7 @@ def run_quiz(path, answers_storage):
         run_quiz_section(file_name, answers_storage)
 
 
+# Record answers into 'answers.txt' file
 def main():
     quiz_path = 'quiz'
     with TemporaryFile('answers.txt', 'w') as answers:
