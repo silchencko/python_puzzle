@@ -35,7 +35,7 @@ def run_quiz_section(file_name, answer_file):
 def run_quiz(path, answers_storage):
     sections = os.listdir(path)
     for section in sections:
-        file_name = path + '/' + section
+        file_name = os.path.join(path, section)
         run_quiz_section(file_name, answers_storage)
 
 
