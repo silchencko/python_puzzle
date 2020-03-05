@@ -9,5 +9,8 @@ class Filter(ABC):
 
     @abstractmethod
     def matches(self, line: str) -> bool:
-        """Returns True if a given line matches the filter, otherwise, returns False."""
+        """
+        Returns True if a given line matches the filter,
+        otherwise, returns False.
+        """
         pass

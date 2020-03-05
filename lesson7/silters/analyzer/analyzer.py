@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from silters.rules.rules import *
+from silters.rules.rules import rule_FP001, rule_FP002,\
+    rule_FP003, rule_FN201, rule_FN202, rule_FN203
 
 
 class Analyzer(ABC):
@@ -35,7 +36,9 @@ class Analyzer(ABC):
 class FilterAnalyzer(Analyzer):
     def analyze(self, file):
         for i, line in enumerate(file):
-            if self.check_rule_fp001(line) or self.check_rule_fp002(line) or self.check_rule_fp003(line):
+            if self.check_rule_fp001(line)\
+                    or self.check_rule_fp002(line)\
+                    or self.check_rule_fp003(line):
                 print(line)
 
     def check_rule_fp001(self, line):

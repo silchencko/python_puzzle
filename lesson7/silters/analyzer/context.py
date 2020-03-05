@@ -1,9 +1,9 @@
 from silters.analyzer.analyzer import Analyzer
 
 
-class Director:
-    def __init__(self) -> None:
-        self._analyzer = None
+class Context:
+    def __init__(self, analyzer: Analyzer) -> None:
+        self._analyzer = analyzer
 
     @property
     def analyzer(self) -> Analyzer:
