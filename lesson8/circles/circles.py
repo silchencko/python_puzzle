@@ -1,5 +1,5 @@
 import math
-from typing import List, Union
+from typing import List, Union, Callable
 
 
 def safe_radius_of(number: Union[int, float]) -> Union[int, float]:
