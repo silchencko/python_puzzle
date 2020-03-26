@@ -9,9 +9,9 @@ class TestSubtract(TestCase):
         num2 = 6
         result = subtract(num1, num2)
         # if the first argument is not 0, the result is not the second argument
-        self.assertIsNot(result, num2)
+        self.assertNotEqual(result, num2)
         # if the second argument is not 0, the result is not the first argument
-        self.assertIsNot(result, num1)
+        self.assertNotEqual(result, num1)
 
     def test_arguments_less_zero(self):
         num1 = -1
@@ -22,11 +22,17 @@ class TestSubtract(TestCase):
         # if the second argument is less then 0, the result is greater then it
         self.assertGreater(result, num2)
 
-    def test_zero_argument(self):
+    def test_first_zero_argument(self):
         num1 = 0
         num2 = 6
         result = subtract(num1, num2)
-        self.assertTrue(result == num1 or result == - num2)
+        self.assertTrue(result == - num2)
+
+    def test_second_zero_argument(self):
+        num1 = 6
+        num2 = 0
+        result = subtract(num1, num2)
+        self.assertTrue(result == num1)
 
 
 if __name__ == '__main__':

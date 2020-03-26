@@ -8,8 +8,7 @@ class TestAdding(TestCase):
         num1 = 1
         num2 = 6
         result = add(num1, num2)
-        self.assertGreater(result, num1)
-        self.assertGreater(result, num2)
+        self.assertEqual(result, 7)
 
     def test_arguments_less_zero(self):
         num1 = -1
@@ -18,11 +17,17 @@ class TestAdding(TestCase):
         self.assertLess(result, num1)
         self.assertLess(result, num2)
 
-    def test_zero_argument(self):
+    def test_first_zero_argument(self):
         num1 = 0
         num2 = 6
         result = add(num1, num2)
-        self.assertTrue(result == num1 or result == num2)
+        self.assertTrue(result == num2)
+
+    def test_second_zero_argument(self):
+        num1 = 6
+        num2 = 0
+        result = add(num1, num2)
+        self.assertTrue(result == num1)
 
 
 if __name__ == '__main__':

@@ -5,8 +5,10 @@ from calculation.tests.test_subtract import TestSubtract
 
 def first_suite():
     suite = unittest.TestSuite()
-    suite.addTest(TestAdding('test_zero_argument'))
-    suite.addTest(TestSubtract('test_zero_argument'))
+    suite.addTest(TestAdding('test_first_zero_argument'))
+    suite.addTest(TestSubtract('test_first_zero_argument'))
+    suite.addTest(TestAdding('test_second_zero_argument'))
+    suite.addTest(TestSubtract('test_second_zero_argument'))
     return suite
 
 
